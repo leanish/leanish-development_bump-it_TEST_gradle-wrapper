@@ -1,0 +1,5 @@
+{
+  "releaseAgeDays": 7,
+  "gradle": { "builds": ["."] },
+  "npm": { "lockfiles": [] }
+}

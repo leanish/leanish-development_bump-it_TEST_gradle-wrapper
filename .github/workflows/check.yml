@@ -1,0 +1,28 @@
+name: Check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout directly so this wrapper-only fixture has no action-pin moves.
+      - name: Checkout
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+          REVISION: ${{ github.sha }}
+        run: |
+          git init .
+          git remote add origin "https://github.com/$REPOSITORY.git"
+          git -c credential.helper='!gh auth git-credential' fetch --depth=1 origin "$REVISION"
+          git checkout --detach FETCH_HEAD
+      - name: Check
+        run: ./gradlew check --no-daemon
