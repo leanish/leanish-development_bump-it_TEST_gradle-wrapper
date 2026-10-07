@@ -17,3 +17,8 @@ val fixtureTest by tasks.registering(JavaExec::class) {
 tasks.check {
     dependsOn(fixtureTest)
 }
+
+tasks.test {
+    // The dependency-free test runs in fixtureTest rather than a JUnit engine.
+    failOnNoDiscoveredTests = false
+}
