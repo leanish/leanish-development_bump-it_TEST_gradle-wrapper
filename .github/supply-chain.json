@@ -1,5 +1,17 @@
 {
   "releaseAgeDays": 7,
   "gradle": { "builds": ["."] },
-  "npm": { "lockfiles": [] }
+  "npm": {
+    "lockfiles": [],
+    "registries": ["https://registry.npmjs.org"]
+  },
+  "maven": {
+    "repositories": [
+      "https://repo1.maven.org/maven2",
+      "https://plugins.gradle.org/m2"
+    ]
+  },
+  "ownPackages": {
+    "GitHub Actions": { "owners": ["leanish"] }
+  }
 }
