@@ -11,7 +11,7 @@ permissions:
 
 jobs:
   check:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     steps:
       # Checkout directly so this wrapper-only fixture has no action-pin moves.
       - name: Checkout
