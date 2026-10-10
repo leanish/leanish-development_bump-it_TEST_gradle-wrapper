@@ -1,6 +1,6 @@
 # bump-it wrapper fixture
 
-Private, disposable repository for a real bump-it Gradle wrapper update. It has
+Public, disposable repository for a real bump-it Gradle wrapper update. It has
 one Java class and one dependency-free test (`fixtureTest`, included in `check`).
 
 ```sh
@@ -21,3 +21,6 @@ the operator opts in through the separate bump-it `agent.yaml`.
 
 Nothing is published or merged by this fixture. The operator reviews the four
 wrapper files and CI in the PR bump-it creates.
+
+[EXPECTED.md](EXPECTED.md) distinguishes the historical selected target from
+the live wrapper rule and documents supply-chain 0.3.0 acceptance.
