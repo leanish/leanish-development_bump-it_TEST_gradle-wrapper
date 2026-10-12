@@ -6,8 +6,6 @@ on:
     types: [opened, synchronize, reopened, edited]
   push:
     branches: [main]
-  schedule:
-    - cron: "17 5 * * *" # daily default-branch scan
   workflow_dispatch:
 
 permissions:
