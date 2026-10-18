@@ -4,6 +4,11 @@ Baseline expectations written 2026-10-10 for supply-chain 0.3.0 and updated
 2026-10-12: main's wrapper is Gradle 9.8.0, the gate is pinned to v0.4.0 and the
 tools are at v0.4.2.
 
+Current infrastructure (2026-10-18): the gate is v0.6.1
+(668b5c4973fc55c9d0f8f341b70cd7889e05b1e9). Tools are deployed separately; record
+the actual release/commit for each trial. The historical baseline above and the
+wrapper seed remain unchanged.
+
 | Case | Files | bump-it | secure-it | Acceptance |
 |---|---|---|---|---|
 | Wrapper routine | gradlew, gradlew.bat, gradle/wrapper/gradle-wrapper.jar, gradle/wrapper/gradle-wrapper.properties | From main's 9.8.0, choose the highest eligible aged stable non-broken Gradle release under the live advisory snapshot: a release in the same major line goes in the routine, a newer major in its own PR. Replace all four tool-generated files and verify official checksums and executable mode. | No Gradle-wrapper remediation mechanism; no A/B/C project-dependency case is seeded here. | ./gradlew check --no-daemon passes. Wrapper bytes/modes match the plan's generated files. Any Gradle verification uses a reference with the planned wrapper overlay. |
@@ -12,6 +17,6 @@ tools are at v0.4.2.
 This fixture remains dependency-free. Do not add npm or Gradle module dependencies
 merely to accommodate carrier or parent remediation tests. It does have a
 supply-chain gate workflow (`.github/workflows/supply-chain.yml:16`, pinned to
-v0.4.0); a bump-it routine may move that pin like any own Action. Retain the
+v0.6.1); a bump-it routine may move that pin like any own Action. Retain the
 selected catalog release, plan, generated wrapper hashes/modes, verification and
 CI evidence, and record each run in VALIDATION.md.
