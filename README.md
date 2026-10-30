@@ -18,7 +18,7 @@ third-party build dependencies. The `supply-chain` workflow, added in #2, calls 
 supply-chain gate; its pin is the `uses:` line there (history in git), and
 `fixture-repin` moves it after each stable release. The gate runs on pull requests, pushes to main
 and manual dispatch; it has no schedule (removed 2026-10-12) and, since v0.4.0, no
-open-PR rescan. The gate pin is an own Action (`ownPackages`), so bump-it's routine
+open-PR rescan. The gate pin is a trusted Action (`trustedPackages`), so bump-it's routine
 may move it. `.github/supply-chain.json` sets the seven-day window and the root
 Gradle build; the operator opts in through the separate bump-it `agent.yaml`.
 
